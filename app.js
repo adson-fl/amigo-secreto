@@ -2,6 +2,7 @@
 
 // Array vazio 
 let amigos = [];
+let amigosRestantes = [...amigos];
 
 function adicionarAmigo(){
 
@@ -16,6 +17,7 @@ function adicionarAmigo(){
 
         limparCampo()
         atualizarLista()
+        sortearAmigo()
     }
 
 }
@@ -36,6 +38,27 @@ function atualizarLista(){
         lista.appendChild(amigo);
     }
     
+}
+
+function sortearAmigo(){
+    if(amigosRestantes.length === 0){
+        amigosRestantes = [...amigos]
+        return;
+    }
+
+    listaSorteada()
+}
+
+function listaSorteada(){
+
+    // pega um indice de forma aleatoria
+    let sortia = Math.floor(Math.random() * amigosRestantes.length);
+
+    // pega o elemento da lista pelo indice
+    let amigo = amigosRestantes.slice(sortia, 1)[0];
+
+    console.log(amigo);
+  
 }
 
 // limpar campo 
